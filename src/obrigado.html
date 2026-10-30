@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Abrindo o WhatsApp | Abraão Chaves</title>
+<meta name="theme-color" content="#0e120b">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<!-- GTM: [A PREENCHER] colar o container aqui e no index.html, o evento é "conversao_whatsapp" -->
+<style>
+@font-face{font-family:Poppins;src:url(/assets/fonts/poppins-300.woff2) format('woff2');font-weight:300;font-display:swap}
+@font-face{font-family:Poppins;src:url(/assets/fonts/poppins-500.woff2) format('woff2');font-weight:500;font-display:swap}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;display:grid;place-items:center;background:#0e120b;color:#ece8dc;font:300 1rem/1.6 Poppins,Arial,sans-serif;text-align:center;padding:2rem 1.25rem}
+.defs{position:absolute;width:0;height:0;overflow:hidden}
+.caixa{max-width:26rem}
+.logo{height:56px;width:auto;margin:0 auto 2.4rem;fill:#ece8dc}
+.roda{width:44px;height:44px;margin:0 auto 1.6rem;border-radius:50%;border:2px solid rgba(201,220,166,.2);border-top-color:#c9dca6;animation:gira .9s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.roda{animation-duration:3s}}
+h1{font-weight:300;font-size:clamp(1.6rem,6vw,2.1rem);line-height:1.2;margin:0}
+p{color:rgba(236,232,220,.66);margin:.8rem 0 2rem}
+a.btn{display:inline-flex;align-items:center;gap:.6em;padding:1em 1.5em;border-radius:999px;background:#c9dca6;color:#141a0f;font-weight:500;text-decoration:none;white-space:nowrap}
+a.btn svg{width:1.2em;height:1.2em}
+a.volta{display:block;margin-top:1.4rem;color:rgba(236,232,220,.6);font-size:.92rem}
+</style>
+</head>
+<body>
+<!--LOGO_DEFS-->
+<main class="caixa">
+  <svg class="logo" viewBox="940 80 3090 1170" role="img" aria-label="Abraão Chaves"><use href="#lg-tree"/><use href="#lg-road"/><use href="#lg-ring"/><use href="#lg-star"/><g transform="translate(1612 -971)"><use href="#lg-abraao"/><use href="#lg-chaves"/></g></svg>
+  <div class="roda" aria-hidden="true"></div>
+  <h1>Estamos abrindo o seu WhatsApp</h1>
+  <p>Se não abrir sozinho em alguns segundos, toque no botão abaixo.</p>
+  <a class="btn" id="ir" href="https://wa.me/559180632788"><!--WA-->Abrir o WhatsApp</a>
+  <a class="volta" href="/">Voltar para o site</a>
+</main>
+<script>
+(function () {
+  var NUMERO = '559180632788';
+  var MSG = {
+    atendimento: 'Olá, Abraão! Vim pelo seu site e quero agendar uma conversa.',
+    livro: 'Olá, Abraão! Vim pelo seu site e quero saber como garantir o meu exemplar de Entre o Céu e a Terra.',
+    empresa: 'Olá, Abraão! Vim pelo seu site e quero saber sobre palestras e o trabalho de saúde mental para empresas.'
+  };
+  var c = (new URLSearchParams(location.search).get('c') || 'site').replace(/[^a-z0-9_-]/gi, '').slice(0, 30);
+  var tipo = c === 'livro' ? 'livro' : c === 'empresa' ? 'empresa' : 'atendimento';
+  var destino = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(MSG[tipo]);
+  document.getElementById('ir').href = destino;
+
+  var partiu = false, inicio = Date.now(), tagPronta = false;
+  function vai() {
+    if (partiu) return;
+    partiu = true;
+    location.replace(destino);
+  }
+  // Sem GTM na página, ninguém chama o callback: segue assim que passar a tela mínima.
+  function tenta() { if ((tagPronta || !window.google_tag_manager) && Date.now() - inicio >= 900) vai(); }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'conversao_whatsapp', contexto: c, tipo: tipo,
+    eventCallback: function () { tagPronta = true; tenta(); }, eventTimeout: 2000
+  });
+  setTimeout(tenta, 900);
+  setTimeout(vai, 2600);
+})();
+</script>
+</body>
+</html>

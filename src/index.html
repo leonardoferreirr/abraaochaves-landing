@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.classList.add('js')</script>
+<title>Abraão Chaves | Logoterapeuta, filósofo e escritor</title>
+<meta name="description" content="Logoterapeuta, filósofo e escritor. Atendimento on-line para quem quer encontrar sentido, direção e equilíbrio para a vida. Palestras para empresas e o livro Entre o Céu e a Terra.">
+<meta name="theme-color" content="#0e120b">
+<!--CANONICAL-->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Abraão Chaves | Logoterapeuta, filósofo e escritor">
+<meta property="og:description" content="Te ajudo a encontrar sentido, direção e equilíbrio para a vida. Atendimento on-line, palestras e livros.">
+<meta property="og:image" content="<!--DOMINIO-->/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/poppins-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/webp" href="/assets/img/abraao-hero-m.webp" imagesrcset="/assets/img/abraao-hero-m.webp 720w, /assets/img/abraao-hero.webp 1000w" imagesizes="(max-width: 899px) 100vw, 44vw" fetchpriority="high">
+<style>
+@font-face{font-family:Poppins;src:url(/assets/fonts/poppins-300.woff2) format('woff2');font-weight:300;font-display:swap}
+@font-face{font-family:Poppins;src:url(/assets/fonts/poppins-400.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:Poppins;src:url(/assets/fonts/poppins-500.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Poppins Reserva';src:local('Arial');size-adjust:112.5%;ascent-override:93%;descent-override:31%;line-gap-override:9%}
+
+:root{
+  --bg:#0e120b; --bg-2:#141a0f; --bg-3:#0a0d08;
+  --sage:#798b4d; --sage-2:#5e6e38; --leaf:#c9dca6; --leaf-2:#dfeac8;
+  --paper:#f2efe6; --ink:#141a0f;
+  --cream:#ece8dc; --muted:rgba(236,232,220,.66); --line:rgba(236,232,220,.13);
+  --font:Poppins,'Poppins Reserva',Arial,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1); --ease-io:cubic-bezier(.65,0,.35,1);
+  --r:20px; --r-lg:clamp(28px,4vw,44px);
+  --gut:clamp(1.25rem,5vw,3rem); --top:72px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:var(--top)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--cream);font:400 1rem/1.65 var(--font);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p,ol,ul,blockquote,figure{margin:0}
+ol,ul{padding:0;list-style:none}
+.defs{position:absolute;width:0;height:0;overflow:hidden}
+.wrap{width:min(1240px,100% - 2*var(--gut));margin-inline:auto}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+h1,h2{font-weight:300;letter-spacing:-.022em;text-wrap:balance}
+h1{font-size:clamp(2.35rem,4.5vw,4.6rem);line-height:1.06}
+h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
+.lead{font-weight:300;font-size:clamp(1.08rem,1.35vw,1.28rem);line-height:1.6;color:var(--muted)}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.7em;padding:1.05em 1.6em;border-radius:999px;font:500 .98rem/1 var(--font);white-space:nowrap;cursor:pointer;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease)}
+.btn svg{width:1.2em;height:1.2em;flex:none}
+.btn .seta{width:1em;height:1em;transition:transform .45s var(--ease)}
+.btn:hover .seta{transform:translateX(4px)}
+.btn:active{transform:scale(.98)}
+.btn-main{background:var(--leaf);color:var(--ink)}
+.btn-main:hover{background:var(--leaf-2)}
+.btn-ghost{border:1px solid rgba(236,232,220,.28);color:var(--cream);background:rgba(236,232,220,.04);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.btn-ghost:hover{border-color:rgba(236,232,220,.6);background:rgba(236,232,220,.08)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:#26301c}
+:focus-visible{outline:2px solid var(--leaf);outline-offset:3px}
+
+/* topo */
+.top{position:fixed;inset:0 0 auto;z-index:50;height:var(--top);transition:background .4s var(--ease),border-color .4s var(--ease),transform .5s var(--ease);border-bottom:1px solid transparent}
+.top.solid{background:rgba(14,18,11,.8);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);border-color:var(--line)}
+.top .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.logo{fill:currentColor;height:40px;width:auto;color:var(--cream)}
+.nav{display:flex;gap:.4rem}
+.nav a{padding:.55em 1.05em;border:1px solid var(--line);border-radius:999px;font-size:.88rem;color:var(--muted);transition:color .3s,border-color .3s}
+.nav a:hover{color:var(--cream);border-color:rgba(236,232,220,.4)}
+.top .btn{padding:.8em 1.2em;font-size:.9rem}
+@media (max-width:999px){.nav{display:none}}
+
+/* hero */
+.hero{position:relative;padding-top:var(--top);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.06fr 1fr;align-items:end;min-height:calc(100svh - var(--top));gap:2rem}
+.hero-txt{align-self:center;padding-block:3rem 5rem;position:relative;z-index:2}
+.hero-txt .lead{margin-top:1.6rem;max-width:34rem}
+.acoes{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.4rem}
+.hero-art{position:relative;align-self:end;height:min(84svh,820px);min-height:520px}
+.disco{position:absolute;left:40%;bottom:11%;width:min(80%,530px);aspect-ratio:1;border-radius:50%;background:var(--sage);transform:translateX(-50%)}
+.disco::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:1px solid rgba(201,220,166,.28)}
+.simbolo{position:absolute;right:-7%;bottom:30%;height:74%;width:auto;fill:var(--leaf);overflow:visible;pointer-events:none}
+.js .simbolo:not(.pronto){opacity:0;animation:aparece 0s 3s forwards}
+@keyframes aparece{to{opacity:1}}
+.hero-art img{position:absolute;bottom:0;left:40%;height:90%;width:auto;max-width:none;transform:translateX(-50%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 10%,#000 90%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 10%,#000 90%,transparent 100%)}
+.hero-art::after{content:"";position:absolute;left:-20%;right:-20%;bottom:0;height:26%;background:linear-gradient(to bottom,rgba(14,18,11,0),var(--bg) 88%);pointer-events:none}
+
+/* frase */
+.frase{padding-block:clamp(6rem,14vw,11rem);text-align:center}
+.frase blockquote{font-weight:300;font-size:clamp(1.75rem,4vw,3.75rem);line-height:1.2;letter-spacing:-.02em;max-width:19.5em;margin-inline:auto;text-wrap:balance}
+.frase .w{transition:opacity .5s var(--ease),color .5s var(--ease)}
+.js .frase.vivo .w{opacity:.42}
+.js .frase.vivo .w.on{opacity:1}
+.frase .w.on.tom{color:var(--leaf)}
+.assina{display:inline-flex;align-items:center;gap:.7rem;margin-top:2.4rem;color:var(--muted);font-size:.95rem}
+.assina svg{height:34px;width:auto;fill:var(--leaf)}
+
+/* sentir (verde da marca) */
+.folha{border-radius:var(--r-lg) var(--r-lg) 0 0;position:relative}
+.sentir{background:var(--sage);color:var(--ink);padding-block:clamp(5rem,10vw,8.5rem) clamp(5rem,9vw,7.5rem)}
+.sentir h2{color:var(--paper);max-width:15em}
+.faixas{margin-top:clamp(2.6rem,5vw,4rem);display:grid;gap:.8rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.faixa{overflow:hidden}
+.trilho{display:flex;width:max-content;animation:corre var(--dur,60s) linear infinite;animation-play-state:paused}
+.faixa.volta .trilho{animation-direction:reverse}
+.faixa.roda .trilho{animation-play-state:running}
+.trilho span{margin-right:.75rem;padding:.75em 1.35em;border:1px solid rgba(20,26,15,.22);border-radius:999px;background:rgba(242,239,230,.12);font-weight:300;font-size:clamp(1rem,1.4vw,1.2rem);white-space:nowrap}
+@keyframes corre{to{transform:translate3d(-50%,0,0)}}
+.logo-txt{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,6vw,6rem);margin-top:clamp(3rem,6vw,5rem);align-items:start}
+.logo-txt .grande{font-weight:300;font-size:clamp(1.35rem,2.2vw,1.95rem);line-height:1.35;letter-spacing:-.01em}
+.logo-txt p+p{margin-top:1rem}
+.logo-txt .corpo{color:rgba(20,26,15,.82);font-size:1.04rem}
+.logo-txt .corpo .btn{margin-top:1.8rem}
+
+/* como funciona */
+.como{background:var(--bg);margin-top:calc(-1*var(--r-lg));padding-block:clamp(5.5rem,10vw,8.5rem)}
+.como .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,6vw,6rem);align-items:start}
+.como-tit{position:sticky;top:calc(var(--top) + 3rem)}
+.como-tit .lead{margin-top:1.2rem;max-width:26rem}
+.como-tit .btn{margin-top:2rem}
+.passos{position:relative;padding-left:5.5rem}
+.estrada{position:absolute;left:0;top:0;width:5.5rem;height:100%;overflow:visible;pointer-events:none}
+.estrada path{fill:none;stroke-linecap:round}
+.estrada .base{stroke:rgba(236,232,220,.1);stroke-width:2}
+.estrada .viva{stroke:var(--leaf);stroke-width:2}
+.passo{position:relative;padding-block:2.2rem 2.6rem}
+.passo+.passo{border-top:1px solid var(--line)}
+.marco{position:absolute;left:-5.5rem;top:2.05rem;width:3.1rem;height:3.1rem;margin-left:1.2rem;border-radius:50%;display:grid;place-items:center;background:var(--bg);border:1px solid rgba(236,232,220,.22);font-size:.95rem;color:var(--muted);transition:background .5s var(--ease),color .5s var(--ease),border-color .5s var(--ease)}
+.passo.on .marco{background:var(--leaf);border-color:var(--leaf);color:var(--ink)}
+.passo h3{font-weight:400;font-size:clamp(1.25rem,1.8vw,1.55rem);letter-spacing:-.01em}
+.passo p{margin-top:.6rem;color:var(--muted);max-width:30rem}
+
+/* sobre */
+.sobre{padding-block:clamp(5rem,10vw,8.5rem);border-top:1px solid var(--line);overflow-x:clip}
+.sobre .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(2rem,6vw,6rem);align-items:start}
+/* a foto original corta o braço na borda direita: ela encosta na borda da tela, e o corte some */
+.retrato{order:2;position:sticky;top:calc(var(--top) + 2rem);height:min(78svh,720px);min-height:480px;margin-right:calc(-1*max(var(--gut),(100vw - 1240px)/2))}
+.retrato .disco{left:auto;right:-14%;transform:none;bottom:8%;width:min(84%,560px)}
+.retrato img{position:absolute;bottom:0;right:0;height:100%;width:auto;max-width:none}
+.retrato::after,.foto-empresa::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(to bottom,rgba(14,18,11,0),var(--bg) 85%);pointer-events:none}
+.sobre-txt .lead{margin-top:1.4rem}
+.facetas{margin-top:clamp(2.4rem,5vw,3.6rem);border-top:1px solid var(--line)}
+.faceta{padding-block:1.35rem;border-bottom:1px solid var(--line)}
+.faceta h3{font-weight:300;font-size:clamp(1.9rem,3.6vw,3.2rem);line-height:1.1;letter-spacing:-.02em;transition:color .6s var(--ease)}
+.faceta .mais{display:grid;grid-template-rows:1fr;transition:grid-template-rows .7s var(--ease),opacity .7s var(--ease)}
+.faceta .mais>div{overflow:hidden}
+.faceta p{padding-top:.7rem;color:var(--muted);max-width:30rem}
+.js .facetas.vivo .faceta h3{color:rgba(236,232,220,.42)}
+.js .facetas.vivo .faceta .mais{grid-template-rows:0fr;opacity:0}
+.js .facetas.vivo .faceta.on h3{color:var(--cream)}
+.js .facetas.vivo .faceta.on .mais{grid-template-rows:1fr;opacity:1}
+
+/* livro */
+.livro{background:var(--paper);color:var(--ink);padding-block:clamp(5rem,10vw,8.5rem)}
+.livro .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:center}
+.palco{display:grid;place-items:center;perspective:1600px;padding-block:2rem}
+.flutua{animation:flutua 7s ease-in-out infinite;animation-play-state:paused}
+.palco.roda .flutua{animation-play-state:running}
+@keyframes flutua{50%{transform:translateY(-12px)}}
+.b3d{--ry:-24deg;--rx:4deg;--esp:34px;position:relative;width:min(320px,60vw);aspect-ratio:2/3;transform-style:preserve-3d;transform:rotateX(var(--rx)) rotateY(var(--ry))}
+.b3d>*{position:absolute;inset:0}
+.capa{border-radius:3px 6px 6px 3px;background:#1d2615;color:var(--paper);overflow:hidden;transform:translateZ(calc(var(--esp)/2));display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:12% 10% 9%;text-align:center;box-shadow:inset 6px 0 10px rgba(0,0,0,.35)}
+.capa::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 30%,rgba(201,220,166,.14),transparent 60%);pointer-events:none}
+.capa .t{font-weight:300;font-size:clamp(1.5rem,4.4vw,2.05rem);line-height:1.1;letter-spacing:-.01em;position:relative}
+.capa .t i{display:block;font-style:normal}
+.capa .hz{position:relative;width:100%;display:flex;align-items:center;gap:12px}
+.capa .hz::before,.capa .hz::after{content:"";flex:1;height:1px;background:rgba(201,220,166,.45)}
+.capa .hz svg{height:clamp(64px,16vw,92px);width:auto;fill:var(--leaf)}
+.capa .a{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(242,239,230,.75);position:relative}
+.lombada{width:var(--esp)!important;left:calc(var(--esp)/-2)!important;background:#151c0f;transform:rotateY(-90deg);display:grid;place-items:center}
+.lombada span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:.62rem;letter-spacing:.2em;color:rgba(242,239,230,.7);white-space:nowrap}
+.miolo{width:var(--esp)!important;left:auto!important;right:calc(var(--esp)/-2)!important;top:1.5%!important;bottom:1.5%!important;background:repeating-linear-gradient(90deg,#efe9d8 0 1px,#ddd5bf 1px 2px);transform:rotateY(90deg)}
+.contracapa{border-radius:6px 3px 3px 6px;background:#1a2213;transform:translateZ(calc(var(--esp)/-2)) rotateY(180deg)}
+.sombra{width:min(300px,56vw);height:26px;margin-top:2.4rem;border-radius:50%;background:radial-gradient(closest-side,rgba(20,26,15,.32),transparent);filter:blur(4px)}
+.livro .lead{color:rgba(20,26,15,.75);margin-top:1.4rem;max-width:32rem}
+.livro .btn{margin-top:2.2rem}
+
+/* empresas */
+.empresas{padding-block:clamp(5rem,10vw,8.5rem);position:relative;overflow:hidden}
+.empresas .wrap{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(2rem,6vw,6rem);align-items:center}
+.empresas .lead{margin-top:1.4rem;max-width:36rem}
+.servicos{margin-top:clamp(2.2rem,4vw,3rem)}
+.servico{position:relative;display:grid;grid-template-columns:3rem 1fr;gap:.2rem 1rem;padding-block:1.15rem}
+.servico::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--line);transform-origin:left;transition:transform 1.1s var(--ease)}
+.js .servicos.vivo .servico:not(.in)::before{transform:scaleX(0)}
+.servico b{grid-row:span 2;font-weight:400;font-size:.85rem;color:var(--leaf);padding-top:.35rem}
+.servico h3{font-weight:400;font-size:1.2rem;letter-spacing:-.005em}
+.servico p{color:var(--muted);font-size:.97rem}
+.empresas .btn{margin-top:2.2rem}
+.foto-empresa{position:relative;height:min(76svh,700px);min-height:460px}
+.foto-empresa .disco{left:50%;bottom:8%;width:94%}
+.foto-empresa img{position:absolute;bottom:0;left:50%;height:100%;width:auto;max-width:none;transform:translateX(-50%);-webkit-mask-image:linear-gradient(to left,transparent 0,#000 14%);mask-image:linear-gradient(to left,transparent 0,#000 14%)}
+
+/* fechamento */
+.final{position:relative;background:var(--bg-3);overflow:hidden;padding-block:clamp(5rem,10vw,8rem) 0}
+.final .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;min-height:min(80svh,760px)}
+.final h2{font-size:clamp(2.3rem,4.6vw,4.4rem);max-width:11em}
+.final .lead{margin-top:1.4rem;max-width:30rem}
+.final .acoes{align-items:center}
+.final .insta{color:var(--muted);font-size:.95rem;border-bottom:1px solid var(--line);padding-bottom:2px;transition:color .3s,border-color .3s}
+.final .insta:hover{color:var(--cream);border-color:var(--cream)}
+.final-foto{align-self:stretch;position:relative;min-height:420px}
+.final-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;-webkit-mask-image:radial-gradient(closest-side at 50% 46%,#000 52%,transparent 100%);mask-image:radial-gradient(closest-side at 50% 46%,#000 52%,transparent 100%)}
+.ditos{padding-block:clamp(3rem,6vw,5rem);overflow:hidden;border-top:1px solid var(--line)}
+.ditos .trilho span{display:inline-flex;align-items:center;gap:clamp(1.2rem,3vw,2.6rem);margin-right:clamp(1.2rem,3vw,2.6rem);padding:0;border:0;background:none;font-weight:300;font-size:clamp(3rem,9vw,8rem);line-height:1;letter-spacing:-.03em;color:rgba(236,232,220,.86)}
+.ditos .trilho svg{height:.5em;width:auto;fill:var(--sage)}
+
+/* rodapé */
+.rodape{background:var(--bg-3);border-top:1px solid var(--line);padding-block:3.5rem 2.2rem;color:var(--muted);font-size:.95rem}
+.rodape .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:2rem;align-items:start}
+.rodape .logo-v{height:118px;width:auto;fill:var(--cream)}
+.rodape h3{font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);margin-bottom:.8rem}
+.rodape li+li{margin-top:.4rem}
+.rodape a:hover{color:var(--cream)}
+.rodape .fim{grid-column:1/-1;border-top:1px solid var(--line);padding-top:1.6rem;margin-top:1rem;font-size:.85rem}
+
+/* barra do celular */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:.7rem var(--gut) calc(.7rem + env(safe-area-inset-bottom));background:rgba(14,18,11,.84);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .5s var(--ease)}
+.barra.on{transform:none}
+.barra .btn{width:100%}
+@media (min-width:900px){.barra{display:none}}
+
+/* revelar */
+.js.rv-pronto .rv:not(.in){opacity:0;transform:translateY(28px)}
+.rv{transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+
+/* celular e tablet */
+@media (max-width:899px){
+  :root{--top:64px}
+  .logo{height:34px}
+  .top .btn{padding:.75em 1.05em;font-size:.86rem}
+  body{text-align:center}
+  .hero .wrap{display:flex;flex-direction:column;min-height:0;gap:0}
+  .hero-art{order:-1;width:100vw;margin-inline:calc(-1*var(--gut));height:min(118vw,600px);min-height:0}
+  .hero-art .disco{left:50%;width:84vw;bottom:10%}
+  .hero-art img{left:50%;height:100%}
+  .hero-art::after{height:42%}
+  .simbolo{right:3%;height:44%;bottom:46%}
+  .hero-txt{margin-top:-16vw;padding-block:0 3.5rem}
+  .hero-txt .lead{margin-inline:auto}
+  .acoes{flex-direction:column;align-items:stretch;max-width:420px;margin-inline:auto}
+  .final .acoes{align-items:center}
+  .sentir h2{margin-inline:auto}
+  .logo-txt{grid-template-columns:1fr;gap:1.4rem}
+  .como .wrap,.sobre .wrap,.livro .wrap,.empresas .wrap,.final .wrap{grid-template-columns:1fr}
+  .como-tit{position:static}
+  .como-tit .lead{margin-inline:auto}
+  .passos{padding-left:0;margin-top:1rem}
+  .estrada{left:50%;width:120px;margin-left:-60px}
+  .passo{padding-block:1.6rem 2rem;border:0!important}
+  .marco{position:relative;left:auto;top:auto;margin:0 auto 1.1rem}
+  .passo p{margin-inline:auto;background:var(--bg);padding-block:.2rem}
+  .passo h3{background:var(--bg);display:inline-block;padding-inline:.6rem}
+  .retrato{order:-1;position:relative;top:auto;height:min(108vw,560px);min-height:0;margin-right:calc(-1*var(--gut))}
+  .retrato .disco{right:-16%;width:86vw}
+  .sobre-txt .lead,.livro .lead,.empresas .lead,.final .lead{margin-inline:auto}
+  .faceta p{margin-inline:auto}
+  .palco{order:-1}
+  .servico{grid-template-columns:1fr;text-align:center}
+  .servico b{grid-row:auto;padding:0}
+  .foto-empresa{order:-1;height:min(108vw,540px);min-height:0}
+  .final .wrap{min-height:0}
+  .final h2{margin-inline:auto}
+  .final-foto{order:-1;min-height:0;height:min(100vw,480px);margin-inline:calc(-1*var(--gut))}
+  .rodape .wrap{grid-template-columns:1fr 1fr;text-align:left}
+  .rodape .marca{grid-column:1/-1}
+  .rodape{padding-bottom:6.5rem}
+}
+@media (min-width:900px) and (max-width:1199px){
+  .hero-art img{height:80%;left:38%}
+  .hero-art .disco{left:38%;width:min(74%,440px)}
+  .simbolo{right:-9%;height:60%;bottom:40%}
+}
+@media (max-width:420px){.btn{padding:1em 1.25em;font-size:.94rem}}
+@media (prefers-reduced-motion:reduce){
+  .trilho,.flutua{animation:none!important}
+  .js.rv-pronto .rv:not(.in){opacity:1;transform:none}
+  .js .frase.vivo .w{opacity:1}
+}
+</style>
+</head>
+<body>
+<!--LOGO_DEFS-->
+
+<header class="top" id="topo">
+  <div class="wrap">
+    <a href="#inicio" aria-label="Abraão Chaves, início">
+      <svg class="logo" viewBox="940 80 3090 1170" role="img" aria-label="Abraão Chaves"><use href="#lg-tree"/><use href="#lg-road"/><use href="#lg-ring"/><use href="#lg-star"/><g transform="translate(1612 -971)"><use href="#lg-abraao"/><use href="#lg-chaves"/></g></svg>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#atendimento">Atendimento</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#livro">Livro</a>
+      <a href="#empresas">Empresas</a>
+    </nav>
+    <a class="btn btn-main" href="obrigado.html?c=topo">Agendar conversa</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero" aria-labelledby="h-hero">
+    <div class="wrap">
+      <div class="hero-txt">
+        <h1 id="h-hero">Encontre sentido, direção e equilíbrio para a vida</h1>
+        <p class="lead">Sou Abraão Chaves, logoterapeuta, filósofo e escritor. Atendo on-line quem quer se entender melhor e voltar a viver com propósito.</p>
+        <div class="acoes" id="acoes-hero">
+          <a class="btn btn-main" href="obrigado.html?c=hero"><!--WA-->Agendar minha conversa</a>
+          <a class="btn btn-ghost" href="#livro" hidden>Conhecer o livro<!--SETA--></a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="disco" aria-hidden="true"></div>
+        <svg class="simbolo" id="simbolo" viewBox="930 70 670 1190" aria-hidden="true">
+          <defs>
+            <linearGradient id="g-pena" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000"/><stop offset=".22" stop-color="#fff"/><stop offset="1" stop-color="#fff"/></linearGradient>
+            <mask id="m-cresce" maskUnits="userSpaceOnUse" x="900" y="-400" width="740" height="2000"><rect id="cresce" x="900" y="-260" width="740" height="1540" fill="url(#g-pena)"/></mask>
+            <mask id="m-anel" maskUnits="userSpaceOnUse" x="1200" y="550" width="400" height="430"><circle id="anel" cx="1399.5" cy="765" r="150" fill="none" stroke="#fff" stroke-width="44" pathLength="100" stroke-dasharray="100 100" stroke-dashoffset="0" transform="rotate(-90 1399.5 765)"/></mask>
+          </defs>
+          <g mask="url(#m-cresce)"><use href="#lg-tree"/><use href="#lg-road"/></g>
+          <use href="#lg-ring" mask="url(#m-anel)"/>
+          <g id="estrela"><use href="#lg-star"/></g>
+        </svg>
+        <img src="/assets/img/abraao-hero-m.webp" srcset="/assets/img/abraao-hero-m.webp 720w, /assets/img/abraao-hero.webp 1000w" sizes="(max-width: 899px) 100vw, 44vw" width="1000" height="1352" alt="Abraão Chaves, logoterapeuta, sorrindo de suéter cinza" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="frase" aria-label="Frase de Abraão Chaves">
+    <div class="wrap">
+      <blockquote id="frase">Toda pessoa pode transformar sua história quando encontra um <span class="tom">propósito</span> para viver.</blockquote>
+      <p class="assina rv"><svg viewBox="940 80 650 1170" aria-hidden="true"><use href="#lg-tree"/><use href="#lg-road"/><use href="#lg-ring"/><use href="#lg-star"/></svg>Abraão Chaves</p>
+    </div>
+  </section>
+
+  <section class="sentir folha" id="atendimento" aria-labelledby="h-sentir">
+    <div class="wrap">
+      <h2 id="h-sentir" class="rv">Às vezes está tudo no lugar e mesmo assim falta alguma coisa</h2>
+    </div>
+    <div class="faixas" aria-label="Situações que levam alguém a buscar ajuda">
+      <div class="faixa" style="--dur:70s"><div class="trilho"><span>Vazio mesmo conquistando objetivos</span><span>Cansaço de só cumprir obrigações</span><span>Luto e saudade</span><span>Ansiedade que não dá trégua</span><span>Dúvida sobre o rumo da vida</span><span>Nada parece fazer sentido</span></div></div>
+      <div class="faixa volta" style="--dur:80s"><div class="trilho"><span>Recomeço depois de uma perda</span><span>Crise de fé</span><span>Decisões difíceis</span><span>Relações que pesam</span><span>Esgotamento no trabalho</span><span>Falta de motivação</span></div></div>
+    </div>
+    <div class="wrap">
+      <div class="logo-txt">
+        <p class="grande rv">A logoterapia foi criada pelo psiquiatra Viktor Frankl a partir de uma ideia simples: quem encontra um sentido para o que vive ganha força para atravessar os dias difíceis.</p>
+        <div class="corpo rv" style="--d:.12s">
+          <p>Nas sessões, a gente olha para a sua história com calma e sem julgamento, e procura junto o que dá sentido à sua rotina, às suas relações e às suas escolhas.</p>
+          <p>É um espaço de escuta e de reflexão, com foco na sua saúde mental e com respeito pela sua fé.</p>
+          <a class="btn btn-ink" href="obrigado.html?c=logoterapia"><!--WA-->Agendar minha conversa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="como folha" aria-labelledby="h-como">
+    <div class="wrap">
+      <div class="como-tit">
+        <h2 id="h-como" class="rv">Como funciona o atendimento on-line</h2>
+        <p class="lead rv" style="--d:.1s">Por vídeo, de onde você estiver. O atendimento presencial chega em breve.</p>
+        <a class="btn btn-main rv" style="--d:.2s" href="obrigado.html?c=como"><!--WA-->Quero começar</a>
+      </div>
+      <div class="passos" id="passos">
+        <svg class="estrada" id="estrada" aria-hidden="true"><path class="base"/><path class="base"/><path class="viva"/><path class="viva"/></svg>
+        <ol>
+        <li class="passo"><span class="marco">1</span><h3>Você me chama no WhatsApp</h3><p>Conta em poucas palavras o que está vivendo e a gente combina um horário que funcione para você.</p></li>
+        <li class="passo"><span class="marco">2</span><h3>A primeira conversa</h3><p>Um encontro on-line para eu entender o seu momento e você sentir se faz sentido seguirmos juntos.</p></li>
+        <li class="passo"><span class="marco">3</span><h3>O acompanhamento</h3><p>Sessões por vídeo, com escuta atenta e reflexão sobre o que importa para você, no ritmo que a sua vida pede.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sobre" id="sobre" aria-labelledby="h-sobre">
+    <div class="wrap">
+      <div class="retrato">
+        <div class="disco" aria-hidden="true"></div>
+        <img src="/assets/img/abraao-cafe.webp" width="760" height="1669" loading="lazy" decoding="async" alt="Abraão Chaves de blazer cinza segurando uma xícara de café">
+      </div>
+      <div class="sobre-txt">
+        <h2 id="h-sobre" class="rv">Quem é Abraão Chaves</h2>
+        <p class="lead rv" style="--d:.1s">Meu trabalho une escuta, reflexão filosófica e cuidado com a saúde mental. Sou logoterapeuta, estou concluindo a formação em Psicanálise e acredito que cada pessoa pode se compreender melhor, fortalecer a própria identidade e encontrar novos caminhos para viver com propósito.</p>
+        <ul class="facetas" id="facetas">
+          <li class="faceta"><h3>Logoterapeuta</h3><div class="mais"><div><p>Ajudo pessoas a encontrarem sentido, equilíbrio e direção, com atendimento on-line e foco em saúde mental.</p></div></div></li>
+          <li class="faceta"><h3>Filósofo</h3><div class="mais"><div><p>Reflexões sobre a vida, o propósito e a existência, trazidas para as questões do dia a dia.</p></div></div></li>
+          <li class="faceta"><h3>Escritor</h3><div class="mais"><div><p>Autor de Entre o Céu e a Terra e de conteúdos sobre desenvolvimento humano.</p></div></div></li>
+          <li class="faceta"><h3>Palestrante</h3><div class="mais"><div><p>Palestras para empresas, instituições e comunidades sobre saúde mental, propósito e sentido de vida.</p></div></div></li>
+          <li class="faceta"><h3>Professor de oratória</h3><div class="mais"><div><p>Aulas de Comunicação e Oratória para quem quer se expressar com clareza e confiança.</p></div></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="livro folha" id="livro" aria-labelledby="h-livro">
+    <div class="wrap">
+      <div class="palco" id="palco">
+        <div class="flutua">
+          <div class="b3d" id="b3d">
+            <div class="contracapa"></div>
+            <div class="miolo"></div>
+            <div class="lombada"><span>ENTRE O CÉU E A TERRA · ABRAÃO CHAVES</span></div>
+            <div class="capa" role="img" aria-label="Capa do livro Entre o Céu e a Terra, de Abraão Chaves">
+              <p class="t"><i>Entre o Céu</i><i>e a Terra</i></p>
+              <div class="hz"><svg viewBox="940 80 650 1170" aria-hidden="true"><use href="#lg-tree"/><use href="#lg-road"/></svg></div>
+              <p class="a">Abraão Chaves</p>
+            </div>
+          </div>
+        </div>
+        <div class="sombra" aria-hidden="true"></div>
+      </div>
+      <div>
+        <h2 id="h-livro" class="rv">Entre o Céu e a Terra</h2>
+        <p class="lead rv" style="--d:.1s">Meu livro mais recente reúne reflexões sobre fé, dor, saudade, superação e o sentido da vida. Escrevi para quem já atravessou uma perda, precisou recomeçar ou simplesmente parou para se perguntar para onde está indo.</p>
+        <a class="btn btn-ink rv" style="--d:.2s" href="obrigado.html?c=livro"><!--WA-->Quero o meu exemplar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="empresas" id="empresas" aria-labelledby="h-empresas">
+    <div class="wrap">
+      <div>
+        <h2 id="h-empresas" class="rv">Saúde mental também é assunto da empresa</h2>
+        <p class="lead rv" style="--d:.1s">Desde 2025, a NR-1 inclui os riscos psicossociais na gestão de riscos ocupacionais. Estresse excessivo, sobrecarga, assédio, conflitos e esgotamento passaram a fazer parte das responsabilidades da empresa, e eu ajudo a sua equipe a cuidar disso de um jeito humano e prático.</p>
+        <ol class="servicos" id="servicos">
+          <li class="servico rv"><b>01</b><h3>Diagnóstico</h3><p>Avaliação do ambiente de trabalho e dos riscos psicossociais da equipe.</p></li>
+          <li class="servico rv" style="--d:.08s"><b>02</b><h3>Palestras</h3><p>Sobre saúde mental, propósito e desenvolvimento humano, para empresas, instituições e comunidades.</p></li>
+          <li class="servico rv" style="--d:.16s"><b>03</b><h3>Treinamentos</h3><p>Conteúdo prático para as equipes e para a liderança.</p></li>
+          <li class="servico rv" style="--d:.24s"><b>04</b><h3>Planos de ação</h3><p>Estratégias de prevenção pensadas para a realidade da sua empresa.</p></li>
+          <li class="servico rv" style="--d:.32s"><b>05</b><h3>Comunicação e oratória</h3><p>Aulas para quem precisa falar em público com clareza e confiança.</p></li>
+        </ol>
+        <a class="btn btn-main rv" href="obrigado.html?c=empresa"><!--WA-->Levar para a minha empresa</a>
+      </div>
+      <div class="foto-empresa">
+        <div class="disco" aria-hidden="true"></div>
+        <img src="/assets/img/abraao-blazer.webp" width="760" height="1441" loading="lazy" decoding="async" alt="Abraão Chaves de blazer azul-marinho">
+      </div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="h-final">
+    <div class="wrap">
+      <div>
+        <h2 id="h-final" class="rv">O primeiro passo pode ser uma mensagem</h2>
+        <p class="lead rv" style="--d:.1s">Me chama no WhatsApp, conta um pouco do seu momento e a gente combina a sua primeira conversa.</p>
+        <div class="acoes rv" style="--d:.2s" id="acoes-final">
+          <a class="btn btn-main" href="obrigado.html?c=final"><!--WA-->Chamar no WhatsApp</a>
+          <a class="insta" href="https://www.instagram.com/abraaochavess/" target="_blank" rel="noopener">ou acompanhe no Instagram</a>
+        </div>
+      </div>
+      <div class="final-foto">
+        <img src="/assets/img/abraao-retrato.webp" width="900" height="1200" loading="lazy" decoding="async" alt="Retrato de Abraão Chaves de camisa preta">
+      </div>
+    </div>
+    <div class="ditos" aria-hidden="true">
+      <div class="faixa" style="--dur:46s"><div class="trilho"><span>sentido<svg viewBox="1220 570 356 390"><use href="#lg-star"/></svg></span><span>direção<svg viewBox="1220 570 356 390"><use href="#lg-star"/></svg></span><span>equilíbrio<svg viewBox="1220 570 356 390"><use href="#lg-star"/></svg></span><span>propósito<svg viewBox="1220 570 356 390"><use href="#lg-star"/></svg></span></div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div class="marca">
+      <svg class="logo-v" viewBox="80 80 2340 2110" role="img" aria-label="Abraão Chaves, logoterapeuta"><use href="#lg-tree"/><use href="#lg-road"/><use href="#lg-ring"/><use href="#lg-star"/><use href="#lg-abraao"/><use href="#lg-chaves"/><use href="#lg-sub"/></svg>
+    </div>
+    <div>
+      <h3>Contato</h3>
+      <ul>
+        <li><a href="obrigado.html?c=rodape">WhatsApp (91) 8063-2788</a></li>
+        <li><a href="https://www.instagram.com/abraaochavess/" target="_blank" rel="noopener">Instagram @abraaochavess</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Atendimento</h3>
+      <ul>
+        <li>On-line, por vídeo</li>
+        <li>Presencial em breve</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Navegue</h3>
+      <ul>
+        <li><a href="#atendimento">Atendimento</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#livro">Livro</a></li>
+        <li><a href="#empresas">Empresas</a></li>
+      </ul>
+    </div>
+    <p class="fim">© 2026 Abraão Chaves. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<div class="barra" id="barra"><a class="btn btn-main" href="obrigado.html?c=barra"><!--WA-->Agendar minha conversa</a></div>
+
+<script src="/assets/main.js" defer></script>
+</body>
+</html>
