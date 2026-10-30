@@ -102,10 +102,28 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
 .assina{display:inline-flex;align-items:center;gap:.7rem;margin-top:2.4rem;color:var(--muted);font-size:.95rem}
 .assina svg{height:34px;width:auto;fill:var(--leaf)}
 
+/* raízes e folhas de fundo */
+.frase{position:relative}
+.frase .wrap{position:relative;z-index:1}
+.raizes{position:absolute;left:0;width:100%;fill:none;stroke-linecap:round;pointer-events:none;z-index:0}
+.raizes .balanco{transform-box:view-box;transform-origin:50% 0;animation:balanco 9s ease-in-out infinite alternate;animation-play-state:paused}
+.raizes.roda .balanco{animation-play-state:running}
+@keyframes balanco{from{transform:skewX(-.7deg) scaleY(.995)}to{transform:skewX(.7deg) scaleY(1.005)}}
+.js .raizes path{stroke-dasharray:1 1;stroke-dashoffset:1}
+.frase .raizes{top:-14vh;height:calc(100% + 14vh);stroke:var(--leaf);opacity:.3}
+.livro .raizes{bottom:0;height:52%;stroke:var(--sage);opacity:.4}
+.folhas{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.cai{position:absolute;top:-80px;left:var(--x);width:calc(24px*var(--e));color:var(--c);opacity:var(--o);animation:cai var(--t) linear var(--a) infinite;animation-play-state:paused;will-change:transform}
+.gira{display:block;animation:gira calc(var(--t)/3.2) ease-in-out var(--a) infinite alternate;animation-play-state:paused}
+.folhas.roda .cai,.folhas.roda .gira{animation-play-state:running}
+.cai svg{width:100%;height:auto;fill:currentColor}
+@keyframes cai{to{transform:translate3d(0,var(--queda,900px),0)}}
+@keyframes gira{from{transform:translateX(-28px) rotate(-38deg)}to{transform:translateX(28px) rotate(42deg)}}
+
 /* sentir (verde da marca) */
 .folha{border-radius:var(--r-lg) var(--r-lg) 0 0;position:relative}
 .sentir{background:var(--sage);color:var(--ink);padding-block:clamp(5rem,10vw,8.5rem) clamp(5rem,9vw,7.5rem)}
-.sentir h2{color:var(--paper);max-width:15em}
+.sentir h2{color:var(--paper);text-align:center;margin-inline:auto;font-size:clamp(2rem,3.5vw,3.4rem)}
 .faixas{margin-top:clamp(2.6rem,5vw,4rem);display:grid;gap:.8rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .faixa{overflow:hidden}
 .trilho{display:flex;width:max-content;animation:corre var(--dur,60s) linear infinite;animation-play-state:paused}
@@ -146,25 +164,26 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
 .retrato img{position:absolute;bottom:0;right:0;height:100%;width:auto;max-width:none}
 .retrato::after,.foto-empresa::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(to bottom,rgba(14,18,11,0),var(--bg) 85%);pointer-events:none}
 .sobre-txt .lead{margin-top:1.4rem}
-.facetas{margin-top:clamp(2.4rem,5vw,3.6rem);border-top:1px solid var(--line)}
-.faceta{padding-block:1.35rem;border-bottom:1px solid var(--line)}
-.faceta h3{font-weight:300;font-size:clamp(1.9rem,3.6vw,3.2rem);line-height:1.1;letter-spacing:-.02em;transition:color .6s var(--ease)}
+.facetas{margin-top:clamp(1.8rem,3vw,2.6rem);border-top:1px solid var(--line)}
+.faceta{padding-block:.95rem;border-bottom:1px solid var(--line)}
+.faceta h3{font-weight:300;font-size:clamp(1.6rem,2.5vw,2.3rem);line-height:1.1;letter-spacing:-.02em;transition:color .6s var(--ease)}
 .faceta .mais{display:grid;grid-template-rows:1fr;transition:grid-template-rows .7s var(--ease),opacity .7s var(--ease)}
 .faceta .mais>div{overflow:hidden}
-.faceta p{padding-top:.7rem;color:var(--muted);max-width:30rem}
+.faceta p{padding-top:.45rem;color:var(--muted);max-width:30rem}
 .js .facetas.vivo .faceta h3{color:rgba(236,232,220,.42)}
 .js .facetas.vivo .faceta .mais{grid-template-rows:0fr;opacity:0}
 .js .facetas.vivo .faceta.on h3{color:var(--cream)}
 .js .facetas.vivo .faceta.on .mais{grid-template-rows:1fr;opacity:1}
 
 /* livro */
-.livro{background:var(--paper);color:var(--ink);padding-block:clamp(5rem,10vw,8.5rem)}
+.livro{background:var(--paper);color:var(--ink);padding-block:clamp(3.5rem,6.5vw,5.5rem);position:relative;overflow:hidden}
+.livro .wrap{position:relative;z-index:1}
 .livro .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:center}
-.palco{display:grid;place-items:center;perspective:1600px;padding-block:2rem}
+.palco{display:grid;place-items:center;perspective:1600px}
 .flutua{animation:flutua 7s ease-in-out infinite;animation-play-state:paused}
 .palco.roda .flutua{animation-play-state:running}
 @keyframes flutua{50%{transform:translateY(-12px)}}
-.b3d{--ry:-24deg;--rx:4deg;--esp:34px;position:relative;width:min(320px,60vw);aspect-ratio:2/3;transform-style:preserve-3d;transform:rotateX(var(--rx)) rotateY(var(--ry))}
+.b3d{--ry:-24deg;--rx:4deg;--esp:34px;position:relative;width:min(280px,56vw);aspect-ratio:2/3;transform-style:preserve-3d;transform:rotateX(var(--rx)) rotateY(var(--ry))}
 .b3d>*{position:absolute;inset:0}
 .capa{border-radius:3px 6px 6px 3px;background:#1d2615;color:var(--paper);overflow:hidden;transform:translateZ(calc(var(--esp)/2));display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:12% 10% 9%;text-align:center;box-shadow:inset 6px 0 10px rgba(0,0,0,.35)}
 .capa::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 30%,rgba(201,220,166,.14),transparent 60%);pointer-events:none}
@@ -178,25 +197,25 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
 .lombada span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:.62rem;letter-spacing:.2em;color:rgba(242,239,230,.7);white-space:nowrap}
 .miolo{width:var(--esp)!important;left:auto!important;right:calc(var(--esp)/-2)!important;top:1.5%!important;bottom:1.5%!important;background:repeating-linear-gradient(90deg,#efe9d8 0 1px,#ddd5bf 1px 2px);transform:rotateY(90deg)}
 .contracapa{border-radius:6px 3px 3px 6px;background:#1a2213;transform:translateZ(calc(var(--esp)/-2)) rotateY(180deg)}
-.sombra{width:min(300px,56vw);height:26px;margin-top:2.4rem;border-radius:50%;background:radial-gradient(closest-side,rgba(20,26,15,.32),transparent);filter:blur(4px)}
+.sombra{width:min(260px,52vw);height:24px;margin-top:1.6rem;border-radius:50%;background:radial-gradient(closest-side,rgba(20,26,15,.32),transparent);filter:blur(4px)}
 .livro .lead{color:rgba(20,26,15,.75);margin-top:1.4rem;max-width:32rem}
 .livro .btn{margin-top:2.2rem}
 
 /* empresas */
-.empresas{padding-block:clamp(5rem,10vw,8.5rem);position:relative;overflow:hidden}
-.empresas .wrap{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(2rem,6vw,6rem);align-items:center}
+.empresas{padding-block:clamp(4rem,7vw,6rem);position:relative;overflow-x:clip}
+.empresas .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,4rem);align-items:center}
 .empresas .lead{margin-top:1.4rem;max-width:36rem}
 .servicos{margin-top:clamp(2.2rem,4vw,3rem)}
-.servico{position:relative;display:grid;grid-template-columns:3rem 1fr;gap:.2rem 1rem;padding-block:1.15rem}
+.servico{position:relative;display:grid;grid-template-columns:3rem 1fr;gap:.1rem 1rem;padding-block:.85rem}
 .servico::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--line);transform-origin:left;transition:transform 1.1s var(--ease)}
 .js .servicos.vivo .servico:not(.in)::before{transform:scaleX(0)}
 .servico b{grid-row:span 2;font-weight:400;font-size:.85rem;color:var(--leaf);padding-top:.35rem}
 .servico h3{font-weight:400;font-size:1.2rem;letter-spacing:-.005em}
 .servico p{color:var(--muted);font-size:.97rem}
 .empresas .btn{margin-top:2.2rem}
-.foto-empresa{position:relative;height:min(76svh,700px);min-height:460px}
-.foto-empresa .disco{left:50%;bottom:8%;width:94%}
-.foto-empresa img{position:absolute;bottom:0;left:50%;height:100%;width:auto;max-width:none;transform:translateX(-50%);-webkit-mask-image:linear-gradient(to left,transparent 0,#000 14%);mask-image:linear-gradient(to left,transparent 0,#000 14%)}
+.foto-empresa{position:relative;height:min(88svh,800px);margin-right:calc(-1*max(var(--gut),(100vw - 1240px)/2))}
+.foto-empresa .disco{left:auto;right:4%;transform:none;bottom:9%;width:min(92%,600px)}
+.foto-empresa img{position:absolute;bottom:0;right:0;height:100%;width:auto;max-width:none}
 
 /* fechamento */
 .final{position:relative;background:var(--bg-3);overflow:hidden;padding-block:clamp(5rem,10vw,8rem) 0}
@@ -265,13 +284,15 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
   .palco{order:-1}
   .servico{grid-template-columns:1fr;text-align:center}
   .servico b{grid-row:auto;padding:0}
-  .foto-empresa{order:-1;height:min(108vw,540px);min-height:0}
+  .foto-empresa{order:-1;height:min(108vw,540px);min-height:0;margin-right:calc(-1*var(--gut))}
+  .foto-empresa .disco{right:-16%;width:86vw}
   .final .wrap{min-height:0}
   .final h2{margin-inline:auto}
   .final-foto{order:-1;min-height:0;height:min(100vw,480px);margin-inline:calc(-1*var(--gut))}
   .rodape .wrap{grid-template-columns:1fr 1fr;text-align:left}
   .rodape .marca{grid-column:1/-1}
   .rodape{padding-bottom:6.5rem}
+  .livro .raizes{height:40%;opacity:.3}
 }
 @media (min-width:900px) and (max-width:1199px){
   .hero-art img{height:80%;left:38%}
@@ -280,7 +301,9 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
 }
 @media (max-width:420px){.btn{padding:1em 1.25em;font-size:.94rem}}
 @media (prefers-reduced-motion:reduce){
-  .trilho,.flutua{animation:none!important}
+  .trilho,.flutua,.raizes .balanco{animation:none!important}
+  .js .raizes path{stroke-dashoffset:0}
+  .folhas{display:none}
   .js.rv-pronto .rv:not(.in){opacity:1;transform:none}
   .js .frase.vivo .w{opacity:1}
 }
@@ -333,6 +356,8 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
   </section>
 
   <section class="frase" aria-label="Frase de Abraão Chaves">
+    <!--RAIZES_FRASE-->
+    <!--FOLHAS_FRASE-->
     <div class="wrap">
       <blockquote id="frase">Toda pessoa pode transformar sua história quando encontra um <span class="tom">propósito</span> para viver.</blockquote>
       <p class="assina rv"><svg viewBox="940 80 650 1170" aria-hidden="true"><use href="#lg-tree"/><use href="#lg-road"/><use href="#lg-ring"/><use href="#lg-star"/></svg>Abraão Chaves</p>
@@ -398,6 +423,8 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
   </section>
 
   <section class="livro folha" id="livro" aria-labelledby="h-livro">
+    <!--FOLHAS_LIVRO-->
+    <!--RAIZES_LIVRO-->
     <div class="wrap">
       <div class="palco" id="palco">
         <div class="flutua">

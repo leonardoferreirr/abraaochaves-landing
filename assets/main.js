@@ -102,6 +102,11 @@
     palco.addEventListener('pointerleave', () => { miraAlvo = { x: 0, y: 0 }; pede(); });
   }
 
+  /* ---------- caminhos de fundo: cada linha se desenha a partir do seu data-i ---------- */
+  const caminhos = $$('.raizes').map(svg => ({ svg, linhas: [...svg.querySelectorAll('path')].map(el => ({ el, i: +el.dataset.i, ult: -1 })) }));
+  const folhas = $$('.folhas');
+  function medeQueda() { folhas.forEach(f => f.style.setProperty('--queda', `${f.offsetHeight + 160}px`)); }
+
   /* ---------- um laço só para tudo que depende da rolagem ---------- */
   const topo = $('#topo');
   let pedido = false;
@@ -128,6 +133,16 @@
       itens.forEach((li, i) => li.classList.toggle('on', p >= marcos[i] - .02));
     } else if (estrada) itens.forEach(li => li.classList.add('on'));
 
+    if (!reduz) caminhos.forEach(({ svg, linhas }) => {
+      const r = svg.getBoundingClientRect();
+      if (r.bottom < -50 || r.top > vh + 50) return;
+      const p = lim((vh * .92 - r.top) / (r.height * .8));
+      linhas.forEach(l => {
+        const v = Math.round(lim((p - l.i * .7) / .55) * 1000) / 1000;
+        if (v !== l.ult) { l.ult = v; l.el.style.strokeDashoffset = 1 - v; }
+      });
+    });
+
     if (livro && !reduz) {
       const r = palco.getBoundingClientRect();
       const p = lim((vh - r.top) / (vh + r.height));
@@ -138,7 +153,7 @@
     }
   }
   addEventListener('scroll', pede, { passive: true });
-  addEventListener('resize', () => { tracaEstrada(); pede(); });
+  addEventListener('resize', () => { tracaEstrada(); medeQueda(); pede(); });
 
   /* ---------- observadores ---------- */
   if ('IntersectionObserver' in window) {
@@ -168,6 +183,11 @@
     if (servicos && !reduz) servicos.classList.add('vivo');
 
     if (palco) new IntersectionObserver(([e]) => palco.classList.toggle('roda', e.isIntersecting)).observe(palco);
+
+    // folhas e balanço dos caminhos só andam com a seção na tela
+    const anda = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('roda', e.isIntersecting && !reduz)));
+    folhas.forEach(f => anda.observe(f));
+    caminhos.forEach(c => anda.observe(c.svg));
 
     // barra do celular: aparece depois do topo e some no fechamento
     const barra = $('#barra'), acoesHero = $('#acoes-hero'), fim = $('.final');
@@ -199,7 +219,7 @@
   }
 
   /* ---------- partida ---------- */
-  const comeca = () => { tracaEstrada(); pede(); };
+  const comeca = () => { tracaEstrada(); medeQueda(); pede(); };
   comeca();
   d.fonts && d.fonts.ready.then(comeca);
   if (d.readyState === 'complete') montaFaixas();
