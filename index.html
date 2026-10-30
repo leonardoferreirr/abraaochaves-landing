@@ -27,7 +27,7 @@
 
 :root{
   --bg:#0e120b; --bg-2:#141a0f; --bg-3:#0a0d08;
-  --sage:#798b4d; --sage-2:#5e6e38; --leaf:#c9dca6; --leaf-2:#dfeac8;
+  --sage:#798b4d; --sage-2:#5e6e38; --sage-fundo:#6a7c43; --leaf:#c9dca6; --leaf-2:#dfeac8;
   --paper:#f2efe6; --ink:#141a0f;
   --cream:#ece8dc; --muted:rgba(236,232,220,.66); --line:rgba(236,232,220,.13);
   --font:Poppins,'Poppins Reserva',Arial,sans-serif;
@@ -123,19 +123,19 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
 
 /* sentir (verde da marca) */
 .folha{border-radius:var(--r-lg) var(--r-lg) 0 0;position:relative}
-.sentir{background:var(--sage);color:var(--ink);padding-block:clamp(5rem,10vw,8.5rem) clamp(5rem,9vw,7.5rem)}
-.sentir h2{color:var(--paper);text-align:center;margin-inline:auto;font-size:clamp(2rem,3.5vw,3.4rem)}
+.sentir{background:var(--sage-fundo);color:#fff;padding-block:clamp(5rem,10vw,8.5rem) clamp(5rem,9vw,7.5rem)}
+.sentir h2{color:#fff;text-align:center;margin-inline:auto;font-size:clamp(2rem,3.5vw,3.4rem)}
 .faixas{margin-top:clamp(2.6rem,5vw,4rem);display:grid;gap:.8rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .faixa{overflow:hidden}
 .trilho{display:flex;width:max-content;animation:corre var(--dur,60s) linear infinite;animation-play-state:paused}
 .faixa.volta .trilho{animation-direction:reverse}
 .faixa.roda .trilho{animation-play-state:running}
-.trilho span{margin-right:.75rem;padding:.75em 1.35em;border:1px solid rgba(20,26,15,.22);border-radius:999px;background:rgba(242,239,230,.12);font-weight:300;font-size:clamp(1rem,1.4vw,1.2rem);white-space:nowrap}
+.trilho span{margin-right:.75rem;padding:.75em 1.35em;border:1px solid rgba(255,255,255,.34);border-radius:999px;background:rgba(255,255,255,.07);font-weight:300;font-size:clamp(1rem,1.4vw,1.2rem);white-space:nowrap}
 @keyframes corre{to{transform:translate3d(-50%,0,0)}}
 .logo-txt{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,6vw,6rem);margin-top:clamp(3rem,6vw,5rem);align-items:start}
 .logo-txt .grande{font-weight:300;font-size:clamp(1.35rem,2.2vw,1.95rem);line-height:1.35;letter-spacing:-.01em}
 .logo-txt p+p{margin-top:1rem}
-.logo-txt .corpo{color:rgba(20,26,15,.82);font-size:1.04rem}
+.logo-txt .corpo{color:#fff;font-size:1.04rem}
 .logo-txt .corpo .btn{margin-top:1.8rem}
 
 /* como funciona */
