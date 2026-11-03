@@ -1,0 +1,6 @@
+# Buscadores e assistentes de IA podem ler o site inteiro.
+# A obrigado.html fica fora do índice pelo noindex dela, não por aqui.
+User-agent: *
+Allow: /
+
+Sitemap: https://abraaochaves.vercel.app/sitemap.xml
