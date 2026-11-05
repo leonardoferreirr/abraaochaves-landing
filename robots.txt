@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abraaochaves.vercel.app/sitemap.xml
+Sitemap: https://www.abraaochaves.com.br/sitemap.xml

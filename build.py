@@ -16,7 +16,7 @@ import json, os, random, re
 from datetime import date
 from html import unescape
 
-DOMINIO = 'https://abraaochaves.vercel.app'  # trocar quando houver domínio próprio (sem barra no fim)
+DOMINIO = 'https://www.abraaochaves.com.br'  # endereço oficial (sem barra no fim)
 VERCEL = 'abraaochaves.vercel.app'           # endereço da Vercel; ganha redirect quando DOMINIO for outro
 
 NOME = 'Abraão Chaves'

@@ -1,11 +1,55 @@
 {
   "cleanUrls": false,
   "headers": [
-    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] },
-    { "source": "/(.*)", "headers": [
-      { "key": "X-Content-Type-Options", "value": "nosniff" },
-      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-      { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
-    ] }
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "abraaochaves.vercel.app"
+        }
+      ],
+      "destination": "https://www.abraaochaves.com.br/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "abraaochaves.vercel.app"
+        }
+      ],
+      "destination": "https://www.abraaochaves.com.br/:path*",
+      "permanent": true
+    }
   ]
 }
