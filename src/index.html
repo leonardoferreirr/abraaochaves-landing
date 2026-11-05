@@ -175,16 +175,11 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
 .flutua{animation:flutua 7s ease-in-out infinite;animation-play-state:paused}
 .palco.roda .flutua{animation-play-state:running}
 @keyframes flutua{50%{transform:translateY(-12px)}}
-.b3d{--ry:-24deg;--rx:4deg;--esp:34px;position:relative;width:min(280px,56vw);aspect-ratio:2/3;transform-style:preserve-3d;transform:rotateX(var(--rx)) rotateY(var(--ry))}
+.b3d{--ry:-24deg;--rx:4deg;--esp:34px;position:relative;width:min(280px,56vw);aspect-ratio:644/954;transform-style:preserve-3d;transform:rotateX(var(--rx)) rotateY(var(--ry))}
 .b3d>*{position:absolute;inset:0}
-.capa{border-radius:3px 6px 6px 3px;background:#1d2615;color:var(--paper);overflow:hidden;transform:translateZ(calc(var(--esp)/2));display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:12% 10% 9%;text-align:center;box-shadow:inset 6px 0 10px rgba(0,0,0,.35)}
-.capa::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 30%,rgba(201,220,166,.14),transparent 60%);pointer-events:none}
-.capa .t{font-weight:300;font-size:clamp(1.5rem,4.4vw,2.05rem);line-height:1.1;letter-spacing:-.01em;position:relative}
-.capa .t i{display:block;font-style:normal}
-.capa .hz{position:relative;width:100%;display:flex;align-items:center;gap:12px}
-.capa .hz::before,.capa .hz::after{content:"";flex:1;height:1px;background:rgba(201,220,166,.45)}
-.capa .hz svg{height:clamp(64px,16vw,92px);width:auto;fill:var(--leaf)}
-.capa .a{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(242,239,230,.75);position:relative}
+.capa{border-radius:3px 6px 6px 3px;background:#1d2615;overflow:hidden;transform:translateZ(calc(var(--esp)/2))}
+.capa img{display:block;width:100%;height:100%;object-fit:cover}
+.capa::after{content:"";position:absolute;inset:0;box-shadow:inset 6px 0 10px rgba(0,0,0,.35);pointer-events:none}
 .lombada{width:var(--esp)!important;left:calc(var(--esp)/-2)!important;background:#151c0f;transform:rotateY(-90deg);display:grid;place-items:center}
 .lombada span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:.62rem;letter-spacing:.2em;color:rgba(242,239,230,.7);white-space:nowrap}
 .miolo{width:var(--esp)!important;left:auto!important;right:calc(var(--esp)/-2)!important;top:1.5%!important;bottom:1.5%!important;background:repeating-linear-gradient(90deg,#efe9d8 0 1px,#ddd5bf 1px 2px);transform:rotateY(90deg)}
@@ -425,11 +420,7 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
             <div class="contracapa"></div>
             <div class="miolo"></div>
             <div class="lombada"><span>ENTRE O CÉU E A TERRA · ABRAÃO CHAVES</span></div>
-            <div class="capa" role="img" aria-label="Capa do livro Entre o Céu e a Terra, de Abraão Chaves">
-              <p class="t"><i>Entre o Céu</i><i>e a Terra</i></p>
-              <div class="hz"><svg viewBox="940 80 650 1170" aria-hidden="true"><use href="#lg-tree"/><use href="#lg-road"/></svg></div>
-              <p class="a">Abraão Chaves</p>
-            </div>
+            <div class="capa"><img src="/assets/img/livro-capa.webp" width="644" height="954" loading="lazy" decoding="async" alt="Capa do livro Entre o Céu e a Terra, de Abraão Chaves"></div>
           </div>
         </div>
         <div class="sombra" aria-hidden="true"></div>

@@ -136,7 +136,7 @@ def schema(c):
                                                                         'Comunicação e oratória' if 'oratória' in n.lower() else 'Saúde mental no trabalho')
                                                                 for n, d in c['servicos']]}},
         {'@type': 'Book', '@id': f'{S}/#livro', 'name': c['livro_titulo'], 'author': eu, 'inLanguage': 'pt-BR',
-         'url': f'{S}/#livro',
+         'url': f'{S}/#livro', 'image': f'{S}/assets/img/livro-capa.webp',
          'description': 'Livro de Abraão Chaves com reflexões sobre fé, dor, saudade, superação e o sentido da vida.'},
         {'@type': 'WebSite', '@id': f'{S}/#site', 'url': f'{S}/', 'name': NOME, 'inLanguage': 'pt-BR', 'publisher': eu},
         {'@type': 'WebPage', '@id': f'{S}/#pagina', 'url': f'{S}/', 'name': TITULO, 'description': DESCRICAO,

@@ -19,7 +19,7 @@ Todos os botões levam ao WhatsApp +55 91 8063-2788 passando por `obrigado.html`
 - Passos, situações, facetas, serviços para empresas e o texto do livro são lidos do próprio `src/index.html`:
   editou a página e rodou o build, o schema e o `llms.txt` acompanham.
 - Não tem FAQPage porque a página não mostra perguntas e respostas. Se um FAQ visível entrar, ele pode ganhar o schema.
-- O livro entra no schema sem capa (a da página é provisória), sem ISBN e sem data, que o site não informa.
+- O livro entra no schema com a capa real, sem ISBN e sem data, que o site não informa.
 
 ## Como trocar de domínio sem perder SEO
 1. Em `build.py`, troque `DOMINIO` pelo endereço novo (por exemplo `https://www.abraaochaves.com.br`, sem barra no fim).
@@ -32,5 +32,4 @@ Todos os botões levam ao WhatsApp +55 91 8063-2788 passando por `obrigado.html`
 
 ## A preencher
 - GTM: colar o container no `index.html` e no `obrigado.html`.
-- Capa do livro *Entre o Céu e a Terra*: a da página é provisória, feita com o símbolo da marca. Trocar pela capa real.
 - O botão "Conhecer o livro" do topo está oculto (`hidden`) a pedido; para voltar, é só tirar o atributo.
