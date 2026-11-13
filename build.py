@@ -82,7 +82,7 @@ def lead(trecho):
 
 def conteudo(html):
     """O que a página diz, lido dela mesma."""
-    atend, sobre, livro, empresas = (secao(html, i) for i in ('atendimento', 'sobre', 'livro', 'empresas'))
+    atend, sobre, livro, palestras, empresas = (secao(html, i) for i in ('atendimento', 'sobre', 'livro', 'palestras', 'empresas'))
     return {
         'situacoes': [texto(s) for t in re.findall(r'<div class="trilho">(.*?)</div>', atend, flags=re.S)
                       for s in re.findall(r'<span>(.*?)</span>', t)],
@@ -94,6 +94,8 @@ def conteudo(html):
         'facetas': [(texto(a), texto(b)) for a, b in re.findall(r'<li class="faceta"><h3>(.*?)</h3>.*?<p>(.*?)</p>', sobre)],
         'livro_titulo': texto(re.search(r'<h2 id="h-livro"[^>]*>(.*?)</h2>', livro).group(1)),
         'livro': lead(livro),
+        'palestras': lead(palestras),
+        'temas': [(texto(a), texto(b)) for a, b in re.findall(r'<li class="tema[^>]*><b>\d+</b><h3>(.*?)</h3><p>(.*?)</p>', palestras)],
         'empresas': lead(empresas),
         'servicos': [(texto(a), texto(b)) for a, b in re.findall(r'<li class="servico[^>]*><b>\d+</b><h3>(.*?)</h3><p>(.*?)</p>', empresas)],
     }
@@ -115,6 +117,8 @@ def schema(c):
     servico = lambda nome, desc, tipo: {'@type': 'Offer', 'itemOffered': {
         '@type': 'Service', 'name': nome, 'description': desc, 'serviceType': tipo, 'provider': eu}}
     individual = servico('Atendimento on-line de logoterapia', c['passos'][-1][1], 'Logoterapia')
+    temas = '; '.join(t for t, _ in c['temas'])
+    desc_servico = lambda n, d: f"{c['palestras']} Temas: {temas}." if n == 'Palestras' and temas else d
     individual['itemOffered']['availableChannel'] = {'@type': 'ServiceChannel', 'name': 'Sessões on-line por vídeo',
                                                      'servicePhone': {'@type': 'ContactPoint', 'telephone': FONE}}
     grafo = [
@@ -132,7 +136,7 @@ def schema(c):
          'address': {'@type': 'PostalAddress', 'addressCountry': 'BR'},
          'founder': eu, 'knowsLanguage': 'pt-BR', 'sameAs': [INSTAGRAM],
          'hasOfferCatalog': {'@type': 'OfferCatalog', 'name': 'Atendimento, palestras e treinamentos',
-                             'itemListElement': [individual] + [servico(NOME_SERVICO.get(n, n), d,
+                             'itemListElement': [individual] + [servico(NOME_SERVICO.get(n, n), desc_servico(n, d),
                                                                         'Comunicação e oratória' if 'oratória' in n.lower() else 'Saúde mental no trabalho')
                                                                 for n, d in c['servicos']]}},
         {'@type': 'Book', '@id': f'{S}/#livro', 'name': c['livro_titulo'], 'author': eu, 'inLanguage': 'pt-BR',
@@ -193,6 +197,9 @@ def llms(c):
     lin += [f'- {s}' for s in c['situacoes']]
     lin += ['', '### Como funciona', '']
     lin += [f'{i}. **{n}.** {t}' for i, (n, t) in enumerate(c['passos'], 1)]
+    lin += ['', '## Palestras', '', f'No site: “{c["palestras"]}”', '']
+    lin += [f'- **{n}:** {d}' for n, d in c['temas']]
+    lin += [f'- Pedir uma palestra: {S}/obrigado.html?c=palestra']
     lin += ['', '## Para empresas', '', f'Palestras, treinamentos e apoio às empresas na NR-1. No site: “{c["empresas"]}”', '']
     lin += [f'- **{NOME_SERVICO.get(n, n)}:** {d}' for n, d in c['servicos']]
     lin += ['', f'## Livro: {c["livro_titulo"]}', '', f'Livro de {NOME}. No site: “{c["livro"]}”', '',

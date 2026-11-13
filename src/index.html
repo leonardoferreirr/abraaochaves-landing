@@ -188,6 +188,29 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
 .livro .lead{color:rgba(20,26,15,.75);margin-top:1.4rem;max-width:32rem}
 .livro .btn{margin-top:2.2rem}
 
+/* palestras */
+.palestras{padding-block:clamp(5rem,10vw,8.5rem) clamp(2rem,4vw,3rem);border-top:1px solid var(--line);overflow:hidden}
+.pal-topo{text-align:center}
+.pal-topo h2{max-width:15em;margin-inline:auto}
+.pal-topo .lead{margin:1.4rem auto 0;max-width:38rem}
+.pal-fotos{--h:clamp(300px,27vw,410px);margin-top:clamp(2.8rem,5vw,4rem);-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.pal-fotos .trilho{padding-bottom:clamp(16px,2.4vw,34px)}
+.pal-fotos figure{flex:none;width:calc(var(--h)*.75);height:var(--h);margin:0 clamp(.8rem,1.6vw,1.25rem) 0 0;border-radius:var(--r);overflow:hidden;background:var(--bg-2)}
+.pal-fotos figure:nth-child(even){transform:translateY(clamp(16px,2.4vw,34px))}
+.pal-fotos img{width:100%;height:100%;object-fit:cover}
+.temas{margin-top:clamp(3rem,6vw,4.6rem);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.4rem,2.8vw,2.6rem)}
+.tema{position:relative;padding-top:1.5rem}
+.tema::before,.tema::after{content:"";position:absolute;left:0;top:0;height:1px;transform-origin:left;transition:transform 1.1s var(--ease)}
+.tema::before{right:0;background:var(--line)}
+.tema::after{width:2.6rem;background:var(--leaf)}
+.js .temas.vivo .tema:not(.in)::before,.js .temas.vivo .tema:not(.in)::after{transform:scaleX(0)}
+.tema b{display:block;font-weight:400;font-size:.85rem;color:var(--leaf)}
+.tema h3{margin-top:.85rem;text-wrap:balance;font-weight:400;font-size:clamp(1.2rem,1.6vw,1.42rem);line-height:1.25;letter-spacing:-.005em}
+.tema p{margin-top:.55rem;color:var(--muted);font-size:.97rem}
+.pal-acao{margin-top:clamp(2.8rem,5vw,3.8rem);text-align:center}
+@media (max-width:380px){.pal-acao .btn{white-space:normal;line-height:1.25;max-width:100%}}
+@media (max-width:1099px){.temas{grid-template-columns:1fr 1fr}}
+
 /* empresas */
 .empresas{padding-block:clamp(4rem,7vw,6rem);position:relative;overflow-x:clip}
 .empresas .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,4rem);align-items:center}
@@ -280,6 +303,11 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
   .rodape .marca{grid-column:1/-1}
   .rodape{padding-bottom:6.5rem}
   .livro .raizes{height:40%;opacity:.3}
+  .pal-fotos{--h:clamp(280px,82vw,380px)}
+  .temas{grid-template-columns:1fr;gap:.6rem}
+  .tema{padding-block:1.4rem .4rem}
+  .tema::after{left:50%;margin-left:-1.3rem;transform-origin:center}
+  .tema p{max-width:30rem;margin-inline:auto}
 }
 @media (min-width:900px) and (max-width:1199px){
   .hero-art img{height:80%;left:38%}
@@ -309,6 +337,7 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
       <a href="#atendimento">Atendimento</a>
       <a href="#sobre">Sobre</a>
       <a href="#livro">Livro</a>
+      <a href="#palestras">Palestras</a>
       <a href="#empresas">Empresas</a>
     </nav>
     <a class="btn btn-main" href="obrigado.html?c=topo">Agendar conversa</a>
@@ -433,6 +462,23 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
     </div>
   </section>
 
+  <section class="palestras" id="palestras" aria-labelledby="h-palestras">
+    <div class="wrap pal-topo">
+      <h2 id="h-palestras" class="rv">Palestras sobre sentido, saúde mental e propósito</h2>
+      <p class="lead rv" style="--d:.1s">Levo para empresas, instituições e comunidades uma conversa sobre o que dá sentido à vida e ao trabalho, com a clareza de quem também ensina comunicação e oratória.</p>
+    </div>
+    <div class="faixa pal-fotos" style="--dur:56s" role="img" aria-label="Abraão Chaves palestrando com o microfone na mão"><div class="trilho"><figure><img src="/assets/img/palestra-3.webp" width="630" height="840" loading="lazy" decoding="async" alt=""></figure><figure><img src="/assets/img/palestra-2.webp" width="630" height="840" loading="lazy" decoding="async" alt=""></figure><figure><img src="/assets/img/palestra-1.webp" width="630" height="840" loading="lazy" decoding="async" alt=""></figure><figure><img src="/assets/img/palestra-4.webp" width="630" height="840" loading="lazy" decoding="async" alt=""></figure></div></div>
+    <div class="wrap">
+      <ol class="temas" id="temas">
+        <li class="tema rv"><b>01</b><h3>Saúde mental no dia a dia</h3><p>Como perceber os sinais de cansaço e de esgotamento e cuidar da mente antes que ela peça socorro.</p></li>
+        <li class="tema rv" style="--d:.08s"><b>02</b><h3>Sentido de vida</h3><p>A logoterapia de Viktor Frankl trazida para a rotina: o que faz a vida e o trabalho valerem a pena.</p></li>
+        <li class="tema rv" style="--d:.16s"><b>03</b><h3>Riscos psicossociais e NR-1</h3><p>O que a norma pede da empresa e como transformar essa obrigação em cuidado de verdade com a equipe.</p></li>
+        <li class="tema rv" style="--d:.24s"><b>04</b><h3>Comunicação e oratória</h3><p>Como falar em público com clareza, segurança e presença.</p></li>
+      </ol>
+      <div class="pal-acao rv"><a class="btn btn-main" href="obrigado.html?c=palestra"><!--WA-->Levar uma palestra à sua empresa</a></div>
+    </div>
+  </section>
+
   <section class="empresas" id="empresas" aria-labelledby="h-empresas">
     <div class="wrap">
       <div>
@@ -499,6 +545,7 @@ h2{font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.1}
         <li><a href="#atendimento">Atendimento</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#livro">Livro</a></li>
+        <li><a href="#palestras">Palestras</a></li>
         <li><a href="#empresas">Empresas</a></li>
       </ul>
     </div>

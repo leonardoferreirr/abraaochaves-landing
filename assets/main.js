@@ -181,6 +181,8 @@
 
     const servicos = $('#servicos');
     if (servicos && !reduz) servicos.classList.add('vivo');
+    const temas = $('#temas');
+    if (temas && !reduz) temas.classList.add('vivo');
 
     if (palco) new IntersectionObserver(([e]) => palco.classList.toggle('roda', e.isIntersecting)).observe(palco);
 

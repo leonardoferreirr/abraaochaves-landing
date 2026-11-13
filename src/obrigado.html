@@ -42,10 +42,11 @@ a.volta{display:block;margin-top:1.4rem;color:rgba(236,232,220,.6);font-size:.92
   var MSG = {
     atendimento: 'Olá, Abraão! Vim pelo seu site e quero agendar uma conversa.',
     livro: 'Olá, Abraão! Vim pelo seu site e quero saber como garantir o meu exemplar de Entre o Céu e a Terra.',
-    empresa: 'Olá, Abraão! Vim pelo seu site e quero saber sobre palestras e o trabalho de saúde mental para empresas.'
+    empresa: 'Olá, Abraão! Vim pelo seu site e quero saber sobre palestras e o trabalho de saúde mental para empresas.',
+    palestra: 'Olá, Abraão! Vim pelo seu site e quero levar uma palestra sua para a minha empresa.'
   };
   var c = (new URLSearchParams(location.search).get('c') || 'site').replace(/[^a-z0-9_-]/gi, '').slice(0, 30);
-  var tipo = c === 'livro' ? 'livro' : c === 'empresa' ? 'empresa' : 'atendimento';
+  var tipo = c === 'livro' ? 'livro' : c === 'empresa' ? 'empresa' : c === 'palestra' ? 'palestra' : 'atendimento';
   var destino = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(MSG[tipo]);
   document.getElementById('ir').href = destino;
 
